@@ -9,3 +9,5 @@ There is lot of functionality I tested with this raw dummy webpage:
 The webpage has a model which doesnot render when page is loaded, due to CSS being set on the respective div element. It hides the div. The tasks are as below:
 
 1. On load make modal visible and chnage a class of modal
+2. Add controls to backdrop
+3. Read inputs and validate
