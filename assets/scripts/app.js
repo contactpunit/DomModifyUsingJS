@@ -5,12 +5,38 @@ const backdrop = document.getElementById('backdrop');
 const cancelAddMovieButton = addMovieModal.querySelector('.btn--passive');
 const confirmAddMovieButton = addMovieModal.querySelector('.btn--success');
 const userInputs = addMovieModal.querySelectorAll('input');
+const section = document.getElementById('entry-text');
+
 const movies = [];
 
 const clearMovieInputs = () => {
     for( element of userInputs) {
         element.value = '';
     }
+}
+
+const updatUI = () => {
+    if (movies.length === 0) {
+        section.style.display = 'block';
+    }else {
+        section.style.display = 'none';
+    }
+}
+
+const renderNewMovieElement = (title, imageUrl, rating) => {
+    const newMovieElement = document.createElement('li');
+    newMovieElement.className = 'movie-element';
+    newMovieElement.innerHTML = `
+    <div class="movie-element__image>
+      <img src="${imageUrl}" alt="${title}"> 
+    </div>
+    <div class="movie-element__info">
+      <h2>${title}</h2>
+      <p>${rating} /5 stars</p>
+    </div>
+    `;
+    const listRoot = document.getElementById('movie-list');
+    listRoot.append(newMovieElement);
 }
 
 const toggleBackdrop = () => {
@@ -53,6 +79,8 @@ const confirmAddMovieHandler = () => {
     console.log(movies);
     clearMovieInputs();
     toggleMovieModal();
+    renderNewMovieElement(newMovie.title, newMovie.image, newMovie.rating);
+    updatUI();
 }
 
 startAddMovieButton.addEventListener('click', toggleMovieModal);
