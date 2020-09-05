@@ -6,6 +6,4 @@ There is lot of functionality I tested with this raw dummy webpage:
 
 The webpage has a model which doesnot render when page is loaded, due to CSS being set on the respective div element. It hides the div. The tasks are as below:
 
-1. On load make the model visible
-2. Add new Element
-3. Remove an Element
+1. On load make modal visible and chnage a class of modal
