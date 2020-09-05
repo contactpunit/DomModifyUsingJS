@@ -5,7 +5,13 @@ const backdrop = document.getElementById('backdrop');
 const cancelAddMovieButton = addMovieModal.querySelector('.btn--passive');
 const confirmAddMovieButton = addMovieModal.querySelector('.btn--success');
 const userInputs = addMovieModal.querySelectorAll('input');
+const movies = [];
 
+const clearMovieInputs = () => {
+    for( element of userInputs) {
+        element.value = '';
+    }
+}
 
 const toggleBackdrop = () => {
     backdrop.classList.toggle('visible')
@@ -21,6 +27,7 @@ const backdropMovieHandler = () => {
 
 const cancelAddMovieHandler = () => {
     toggleMovieModal();
+    clearMovieInputs();
 }
 
 const confirmAddMovieHandler = () => {
@@ -34,7 +41,18 @@ const confirmAddMovieHandler = () => {
         +ratingValue < 1 ||
         +ratingValue > 5) {
             alert('Please enter valid values.');
+            return;
     }
+
+    const newMovie = {
+        title: titleValue,
+        image: imageUrlValue,
+        rating: ratingValue
+    };
+    movies.push(newMovie);
+    console.log(movies);
+    clearMovieInputs();
+    toggleMovieModal();
 }
 
 startAddMovieButton.addEventListener('click', toggleMovieModal);

@@ -11,3 +11,4 @@ The webpage has a model which doesnot render when page is loaded, due to CSS bei
 1. On load make modal visible and chnage a class of modal
 2. Add controls to backdrop
 3. Read inputs and validate
+4. Create movie record and clear input fields
